@@ -1,8 +1,9 @@
 body {
-    background: #0000FF;
-    background: radial-gradient(circle, rgba(0, 0, 255, 1) 0%, rgba(255, 225, 0, 1) 50%, rgba(0, 255, 0, 1) 100%);
+    height: 100vh;
+    width: 100vw;
+    background-image: url(background.gif);
+    object-fit: cover;
     font-family: monospace;
-    padding: 10px;
 }
 
 img {
@@ -13,4 +14,28 @@ img {
 
 .center {
     text-align: center;
+}
+
+.window {
+    background: white;
+    border: solid;
+    width: fit-content;
+    max-height: 75vh;
+    overflow-y: auto;
+    border-radius: 16px;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.topbar {
+    position: absolute; 
+    width: 100%; 
+    display: flex; 
+    backdrop-filter: blur(10px); 
+    background-color: rgba(72, 255, 0, 0.5); 
+    color: #0033ff; 
+    justify-content: space-evenly;
 }
