@@ -4,6 +4,7 @@ body {
     background-image: url(background.gif);
     object-fit: cover;
     font-family: monospace;
+    overflow: hidden;
 }
 
 img {
@@ -20,14 +21,14 @@ img {
     background: white;
     border: solid;
     width: fit-content;
+    min-width: 400px;
     max-height: 75vh;
     overflow-y: auto;
     border-radius: 16px;
     padding: 10px;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 11%;
+    left: 20%;
 }
 
 .topbar {
