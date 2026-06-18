@@ -31,12 +31,49 @@ img {
     left: 20%;
 }
 
+.headerdiv {
+    background-color: #304cbd;
+    border-radius: 16px;
+    border-top: 2px solid #5b7fff;    /* Lighter blue highlight */
+    border-bottom: 2px solid #1a35a3; /* Darker blue shadow */
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    align-items: center;
+    gap: 10px;
+}
+
+.headerimg {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    cursor: move;
+}
+
 .topbar {
-    position: absolute; 
-    width: 100%; 
-    display: flex; 
+    position: fixed; 
+    width: 100vw; 
+    display: flex;
+    left: 0;
+    top: 0;
     backdrop-filter: blur(10px); 
     background-color: rgba(72, 255, 0, 0.5); 
     color: #0033ff; 
     justify-content: space-evenly;
+}
+
+.closebtn {
+    color: darkgreen;
+    background-color: white;
+    cursor: pointer;
+    border: solid 1px;
+    border-color: black;
+    border-radius: 8px;
+}
+
+.closebtn:hover {
+    color: white;
+    background-color: darkgreen;
+    border-color: darkgreen;
 }
