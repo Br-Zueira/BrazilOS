@@ -1,7 +1,4 @@
-// Clock updater
-setInterval(() => {
-    document.getElementById('clock').innerText = new Date().toLocaleString();
-}, 1000);
+// --- Definitions
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
@@ -55,5 +52,25 @@ function dragElement(element) {
   }
 }
 
-// Make the DIV element draggable:
+function closeWindow(element) {
+  // Makes window invisible
+  element.style.display = "none"
+}
+
+function openWindow(element) {
+  // Makes winndow visible
+  element.style.display = "flex"
+}
+
+// Implementations
+
+// Clock updater
+setInterval(() => {
+  document.getElementById('clock').innerText = new Date().toLocaleString();
+}, 1000);
+
+// Welcome window
 dragElement(document.getElementById("welcome"));
+document.getElementById("welcomeclose").addEventListener('click', () => {
+  closeWindow(document.getElementById("welcome"));
+});
