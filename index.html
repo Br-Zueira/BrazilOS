@@ -10,18 +10,27 @@
     <body>
         <!-- TOPBAR -->
         <div id="topbar">
-            <p>Battery: Ur on desktop, no battery for u</p>
-            <p><strong>🇧🇷 BrazilOS</strong></p>
-            <p>Weather: -99°C</p>
-            <p id="clock">0/00/0000, 00:00:00 XM</p>
+            <div id="statsbar">
+                <p>Battery: Ur on desktop, no battery for u</p>
+                <p>Weather: -99°C</p>
+                <p><strong>🇧🇷 BrazilOS</strong></p>
+                <p id="clock">0/00/0000, 00:00:00 XM</p>
+                <button id="taskbarToggle">Toggle Taskbar</button>
+            </div>
+            <div id="taskbar">
+                <p>Lorem ipsum dolor sit amet</p>
+            </div>
         </div>
         <!-- DESKTOP APPS -->
         <div id="desktopApps">
             <img class="desktopIcon" src="header.jpeg" id="welcomeopen">
-            <p>Welcome app</p>
+            <p>Welcome App</p>
 
             <img class="desktopIcon" src="header.jpeg" id="notesopen">
             <p>Football Notes</p>
+
+            <img class="desktopIcon" src="header.jpeg" id="memequotesopen">
+            <p>Meme Quotes</p>
         </div>
         <!-- WINDOWS -->
         <!-- WELCOME WINDOW -->
@@ -75,6 +84,70 @@
             </div>
         </div>
 
+        <!-- MEME QUOTES -->
+        <div class="window" id="memequotes" style="display: none">
+            <div class="headerdiv">
+
+                <img src="header.jpeg" id="memequotesheader" class="headerimg">
+
+                <p><- Handle | 
+                    <strong>Caneta Azul Header</strong>
+                | Utilities -></p>
+
+                <button class="closebtn" id="memequotesclose">Ben10 Close</button>
+                
+            </div>
+
+            <div class="windowbody">
+                <h3 class="center">Quotes from popular national memelosophers</h1>
+                <blockquote>
+                    <i>There he a thousand times</i> <br>
+                    ~ Manoel Gomes, a.k.a. The Lord
+                </blockquote>
+                <blockquote>
+                    <i>Receive</i> <br>
+                    ~ Luva de Pedreiro (translation: Bricklayer's glove)
+                </blockquote>
+                <blockquote>
+                    <i>Energy drink FLAvor [Hand movement]</i> <br>
+                    ~ Toguro
+                </blockquote>
+                <blockquote>
+                    <i>Irineu, neither I nor you know</i> <br>
+                    ~ Irineu (neither I nor you know)
+                </blockquote>
+                <blockquote>
+                    <i>I can't continue living after Vini Jr. and Virginia breakup</i> <br>
+                    ~ Xique-Xique Bahia resident on internet
+                </blockquote>
+                <blockquote>
+                    <i>Wood stump</i> <br>
+                    ~ A Gaucho boy teaching a very cool game
+                </blockquote>
+                <blockquote>
+                    <i>It's the truth</i> <br>
+                    ~ Jaguar killer
+                </blockquote>
+                <blockquote>
+                    <i>I played all the games. ALL, THE, GAMES</i> <br>
+                    ~ Davy Jones, a.k.a. the wizard
+                </blockquote>
+                <blockquote>
+                    <i>Veri gudii</i> <br>
+                    ~ The Lord once more
+                </blockquote>
+                <blockquote>
+                    <i>Oh my God, there's nothing left</i> <br>
+                    ~ Little Beta (brutal)
+                </blockquote>
+                <p class="center">Now you have <br>
+                    <strong>T H E <br> 
+                    W I S D O M</strong> <br>
+                of memelosophy</p>
+            </div>
+        </div>
+
+        <!-- NOTES -->
         <div class="window" id="notes" style="display: none">
             <div class="headerdiv">
 
@@ -89,7 +162,11 @@
             </div>
 
             <div class="windowbody">
-                
+                <h1 class="center">Football Notes:</h1>
+                <div class="inAppTopBar" id="noteBar"></div>
+                <h3>Title:</h3> <span id="notesTitle"></span>
+                <h3>Date:</h3> <span id="notesDate"></span>
+                <h3>Note:</h3> <span id="notesContent"></span>
             </div>
         </div>
     </body>

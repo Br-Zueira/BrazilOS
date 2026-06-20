@@ -114,15 +114,69 @@ function setWindow(windowname) {
   });
 }
 
-// --- Implementations
+// Toggle taskbar display to hide and show it
+function taskbarToggler() {
+  const taskbar = document.getElementById("taskbar");
+  if (taskbar.style.display == "none") {
+    openWindow(taskbar); // Reusing function just because it works =)
+  } else {
+    closeWindow(taskbar);
+  }
+}
 
-// Clock updater
+// --- Clock updater
 setInterval(() => {
   document.getElementById('clock').innerText = new Date().toLocaleString();
 }, 1000);
 
+// --- Taskbar toggle manager
+document.getElementById("taskbarToggle").addEventListener("click", () => {
+  taskbarToggler();
+});
+
+// --- Windows
 // OS Windows (no pun intended)
 setWindow("welcome");
 selectIcon(document.getElementById("welcomeopen")); // Preopen window
 
 setWindow("notes");
+
+setWindow("memequotes");
+
+// -- Notes
+let notes = [{
+  title: 'Braiti',
+  date: '20/06/2026',
+  content: `
+    Yesterday, Brazil played against Haiti. 
+    3x0 was good, but could be better if players didn't come half asleep from the interval.
+    Now I hope Ancelotti will let Endrick cook in the next match.
+`}];
+
+function setNotesContent(index) {
+  const notesContent = document.getElementById("notesContent");
+  const notesTitle = document.getElementById("notesTitle");
+  const notesDate = document.getElementById("notesDate");
+  notesContent.innerHTML = "<p contenteditable='true'>" + notes[index].content + "</p>";
+  notesTitle.innerHTML = "<p contenteditable='true'>" + notes[index].title + "</p>";
+  notesDate.innerHTML = "<p contenteditable='true'>" + notes[index].date + "</p>";
+}
+
+function addToNoteBar(index) {
+  const noteBar = document.getElementById("noteBar");
+  const note = notes[index];
+  let newBtn = document.createElement("button");
+  newBtn.className = "topBarBtn";
+  newBtn.id = `note${index}`;
+  newBtn.innerText = note.title;
+  newBtn.addEventListener("click", () => {
+    setNotesContent(index);
+  });
+  noteBar.appendChild(newBtn);
+}
+
+setNotesContent(0);
+
+for (const index of notes.keys()) {
+  addToNoteBar(index);
+}

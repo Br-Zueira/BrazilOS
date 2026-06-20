@@ -22,11 +22,12 @@ img {
     border: solid;
     width: fit-content;
     min-width: 600px;
+    max-width: 1000px;
     max-height: 75vh;
     border-radius: 16px;
     position: absolute;
-    top: 10%;
-    left: 10%;
+    top: 20%;
+    left: 20%;
     display: flex;
     flex-direction: column;
 }
@@ -59,16 +60,35 @@ img {
 }
 
 #topbar {
-    position: fixed; 
-    width: 100vw; 
+    width: 100vw;
+    position: fixed;
     display: flex;
+    flex-direction: column;
     left: 0;
     top: 0;
     right: 0;
+}
+
+#taskbar {
+    width: 100%; 
+    height: auto;
+    display: flex;
+    backdrop-filter: blur(10px); 
+    background-color: rgba(255, 238, 0, 0.5); 
+    color: #0033ff; 
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#statsbar {
+    width: 100%; 
+    height: auto;
+    display: flex;
     backdrop-filter: blur(10px); 
     background-color: rgba(72, 255, 0, 0.5); 
     color: #0033ff; 
     justify-content: space-evenly;
+    align-items: center;
 }
 
 .closebtn {
@@ -88,7 +108,7 @@ img {
 
 #desktopApps {
     padding: 16px;
-    padding-top: 64px;
+    padding-top: 100px;
 }
 
 .desktopIcon {
@@ -105,4 +125,52 @@ img {
 
 .selected {
     border-color: yellow;
+}
+
+#taskbarToggle {
+    display: block;
+    border: 1px solid black;
+    cursor: pointer;
+    border-radius: 16px;
+    background-color: #304cbd;
+    height: 30px;
+    width: 150px;
+}
+
+#taskbarToggle:hover {
+    background-color: #192f86;
+}
+
+.inAppTopBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: lightgray;
+    border-radius: 16px;
+    padding: 8px;
+    overflow-x: scroll;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.topBarBtn {
+    background-color: gray;
+    border: 1px solid rgb(50, 50, 50);
+    border-radius: 16px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.topBarBtn:hover {
+    background-color: rgb(100, 100, 100);
+}
+
+#notesContent {
+    width: 100%;
+    box-sizing: border-box;
+    
+    /* THE FIX: Force the text to wrap instead of pushing boundaries */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
 }
