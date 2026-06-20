@@ -76,6 +76,16 @@ function deselectIcon(element) {
   selectedIcon = undefined;
 }
 
+// Z position managment
+
+let biggestIndex = 0;
+
+function handleWindowTap(element) {
+  biggestIndex++;  // Increment biggestIndex by 1
+  element.style.zIndex = biggestIndex;
+  document.getElementById("topbar").style.zIndex = biggestIndex + 1;
+}
+
 // Just a middleman to reduce boilerplate
 
 function setWindow(windowname) {
@@ -95,6 +105,12 @@ function setWindow(windowname) {
   document.getElementById(windowname + "open").addEventListener('click', () => {
     openWindow(window);
     selectIcon(document.getElementById(windowname + "open"));
+    handleWindowTap(window);
+  });
+
+  // Set up 
+  window.addEventListener("mousedown", () => {
+    handleWindowTap(window);
   });
 }
 
@@ -107,4 +123,6 @@ setInterval(() => {
 
 // OS Windows (no pun intended)
 setWindow("welcome");
-selectIcon(document.getElementById("welcomeopen"));
+selectIcon(document.getElementById("welcomeopen")); // Preopen window
+
+setWindow("notes");
