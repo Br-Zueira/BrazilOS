@@ -58,19 +58,53 @@ function closeWindow(element) {
 }
 
 function openWindow(element) {
-  // Makes winndow visible
+  // Makes window visible
   element.style.display = "flex"
 }
 
-// Implementations
+// Icon managment
+
+let selectedIcon = undefined
+
+function selectIcon(element) {
+  element.classList.add("selected");
+  selectedIcon = element;
+} 
+
+function deselectIcon(element) {
+  element.classList.remove("selected");
+  selectedIcon = undefined;
+}
+
+// Just a middleman to reduce boilerplate
+
+function setWindow(windowname) {
+  // Window object
+  const window = document.getElementById(windowname);
+
+  // Make window draggable
+  dragElement(window);
+  
+  // Make window closable
+  document.getElementById(windowname + "close").addEventListener('click', () => {
+    closeWindow(window);
+    deselectIcon(document.getElementById(windowname + "open"));
+  });
+
+  // Set up desktop icon
+  document.getElementById(windowname + "open").addEventListener('click', () => {
+    openWindow(window);
+    selectIcon(document.getElementById(windowname + "open"));
+  });
+}
+
+// --- Implementations
 
 // Clock updater
 setInterval(() => {
   document.getElementById('clock').innerText = new Date().toLocaleString();
 }, 1000);
 
-// Welcome window
-dragElement(document.getElementById("welcome"));
-document.getElementById("welcomeclose").addEventListener('click', () => {
-  closeWindow(document.getElementById("welcome"));
-});
+// OS Windows (no pun intended)
+setWindow("welcome");
+selectIcon(document.getElementById("welcomeopen"));
