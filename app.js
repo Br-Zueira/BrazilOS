@@ -188,7 +188,7 @@ function getEmoji(code, isDay = 1) {
   // World Weather Standard Codes
   // TODO: Add actual emojis
   if (code === 0) {
-    return isDay ? "\u{1F200}" : "\u{1F319}"; // ☀️ (Customized clear sun) / 🌙
+    return isDay ? "\u{2600}" : "\u{1F319}"; // ☀️ (Customized clear sun) / 🌙
   } else if (code < 4) {
     return isDay ? "\u{1F324}" : "\u{2601}";  // 🌤️ / ☁️
   } else if (code < 49) {
@@ -200,7 +200,7 @@ function getEmoji(code, isDay = 1) {
   } else if (code < 76) {
     return "\u{1F328}";                      // 🌨️
   } else if (code < 99) {
-    return "\u{26C5}";                      // ⛈️
+    return "\u{26C8}";                      // ⛈️
   } else {
     return "?";
   }
