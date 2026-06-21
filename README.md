@@ -3,7 +3,7 @@ BrazilOS is a WebOS project made with funny and learning intention in mind.
 
 ## Preview
 **Welcome view:**
-!(Screenshot with welcome window open)[assets/docs/print.png]
+![Screenshot with welcome window open](assets/docs/print.png)
 
 ## Functionalities
 * **Working apps and functions** like weather, clock and quotes
