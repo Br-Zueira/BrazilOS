@@ -124,7 +124,7 @@ img {
 }
 
 .selected {
-    border-color: yellow;
+    border-color: yellow !important;
 }
 
 #taskbarToggle {
@@ -173,4 +173,54 @@ img {
     word-wrap: break-word;
     overflow-wrap: break-word;
     white-space: normal;
+}
+
+.settingOptions {
+    display: flex;
+    flex-direction: column;
+}
+
+.settingOptions label {
+    display: flex;
+    align-items: center;
+}
+
+/* Style the radio inputs from scratch*/
+.settingOptions [type=radio] {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: rgb(220, 220, 220);
+    margin-inline: 8px;
+
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+
+    cursor: pointer;
+    vertical-align: middle;
+    transition: all 0.2s ease;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Style the hover state of your custom ring */
+.settingOptions [type=radio]:hover {
+    border-color: rgb(255, 85, 0);
+    box-shadow: 0 0 6px rgba(255, 85, 0, 0.3);
+}
+
+/* Design the inner dot when SELECTED (:checked) */
+.settingOptions [type=radio]:checked {
+    border-color: rgb(255, 85, 0);
+}
+
+.settingOptions [type=radio]:checked::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%; /* Keeps the inner dot perfectly circular */
+    background-color: rgb(255, 85, 0);
 }

@@ -12,13 +12,13 @@
         <div id="topbar">
             <div id="statsbar">
                 <p>Battery: Ur on desktop, no battery for u</p>
-                <p>Weather: -99°C</p>
                 <p><strong>🇧🇷 BrazilOS</strong></p>
                 <p id="clock">0/00/0000, 00:00:00 XM</p>
-                <button id="taskbarToggle">Toggle Taskbar</button>
+                <button id="taskbarToggle">Toggle NerdyBar</button>
             </div>
             <div id="taskbar">
-                <p>Lorem ipsum dolor sit amet</p>
+                <p>Weather: <span id="weather"></span></p>
+                <button class="topBarBtn" id="settingsopen">Jazzghost Settings</button>
             </div>
         </div>
         <!-- DESKTOP APPS -->
@@ -167,6 +167,94 @@
                 <h3>Title:</h3> <span id="notesTitle"></span>
                 <h3>Date:</h3> <span id="notesDate"></span>
                 <h3>Note:</h3> <span id="notesContent"></span>
+            </div>
+        </div>
+        <!-- SETTINGS -->
+        <div class="window" id="settings" style="display: none">
+            <div class="headerdiv">
+
+                <img src="header.jpeg" id="settingsheader" class="headerimg">
+
+                <p><- Handle | 
+                    <strong>Caneta Azul Header</strong>
+                | Utilities -></p>
+
+                <button class="closebtn" id="settingsclose">Ben10 Close</button>
+                
+            </div>
+
+            <div class="windowbody">
+                <h1 class="center">Jazzghost Settings:</h1>
+                <form id="settingForm">
+                    <h2>Weather</h2>
+                    <div>
+                        <h3>Coordinates:</h3>
+                        <div class="settingOptions">
+                            <label>
+                                <p>Latitude</p>
+                                <input type="number" step="0.00001" name="lat" placeholder="-19.9208 (Belo Horizonte)">
+                            </label>
+                            <label>
+                                <p>Longitude</p>
+                                <input type="number" step="0.00001" name="lon" placeholder="-43.9378 (Belo Horizonte)">
+                            </label>
+                        </div>
+                        <h3>Temperature:</h3>
+                        <div class="settingOptions">
+                            <label>
+                                <p>Celsius (°C)</p>
+                                <input type="radio" name="temp" value="celsius">
+                            </label>
+                            <label>
+                                <p>Fahrenheit (°F)</p>
+                                <input type="radio" name="temp" value="fahrenheit">
+                            </label>
+                            <label>
+                        </div>
+                        <h3>Wind Speed:</h3>
+                        <div class="settingOptions">
+                            <label>
+                                <p>Kilometer Per Hour (km/h)</p>
+                                <input type="radio" name="wind" value="kmh">
+                            </label>
+                            <label>
+                                <p>Knots (kn)</p>
+                                <input type="radio" name="wind" value="kn">
+                            </label>
+                            <label>
+                                <p>Meters Per Second (m/s)</p>
+                                <input type="radio" name="wind" value="ms">
+                            </label>
+                            <label>
+                                <p>Miles Per Hour (mp/h)</p>
+                                <input type="radio" name="wind" value="mph">
+                            </label>
+                        </div>
+                    </div>
+                    <h2>Useless options:</h2>
+                    <div>
+                        <h3>How to rage Jazzghost</h3>
+                        <div class="settingOptions">
+                            <label>
+                                <p>Deadend Cave</p>
+                            <input type="radio" name="rage" value="cave">
+                            </label>
+                            <label>
+                                <p>Greedy Mobile Games</p>
+                                <input type="radio" name="rage" value="greedy">
+                            </label>
+                            <label>
+                                <p>Backrooms</p>
+                                <input type="radio" name="rage" value="backrooms">
+                            </label>
+                            <label>
+                                <p>Tetanus</p>
+                                <input type="radio" name="rage" value="tetanus">
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="topBarBtn">Save this (you're not dumb/donkey like Jazzghost to forgot to save, are you?)</button>
+                </form>
             </div>
         </div>
     </body>

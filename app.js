@@ -143,6 +143,8 @@ setWindow("notes");
 
 setWindow("memequotes");
 
+setWindow("settings");
+
 // -- Notes
 let notes = [{
   title: 'Braiti',
@@ -180,3 +182,76 @@ setNotesContent(0);
 for (const index of notes.keys()) {
   addToNoteBar(index);
 }
+
+// --- Weather
+function getEmoji(code, isDay = 1) {
+  // World Weather Standard Codes
+  // TODO: Add actual emojis
+  if (code === 0) {
+    return isDay ? "\u{1F200}" : "\u{1F319}"; // ☀️ (Customized clear sun) / 🌙
+  } else if (code < 4) {
+    return isDay ? "\u{1F324}" : "\u{2601}";  // 🌤️ / ☁️
+  } else if (code < 49) {
+    return "\u{1F32B}";                      // 🌫️
+  } else if (code < 56) {
+    return "\u{1F326}";                      // 🌦️
+  } else if (code < 66) {
+    return "\u{1F327}";                      // 🌧️
+  } else if (code < 76) {
+    return "\u{1F328}";                      // 🌨️
+  } else if (code < 99) {
+    return "\u{26C5}";                      // ⛈️
+  } else {
+    return "?";
+  }
+}
+
+async function getWeather() {
+  // Coordinates (Belo Horizonte as Default)
+  const lat = localStorage.getItem("latPref") ?? -19.9208;
+  const lon = localStorage.getItem("lonPref") ?? -43.9378;
+
+  // Measure units
+  const tempunit = localStorage.getItem("tempPref") ?? "celsius";
+  const windunit = localStorage.getItem("windPref") ?? "kmh";
+
+  // Crude Info
+  const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&temperature_unit=${tempunit}&wind_speed_unit=${windunit}`);
+  const data = await response.json();
+
+  // Simplification
+  const weather = data.current_weather;
+  const units = data.current_weather_units;
+
+  // Actual Display
+  let text = getEmoji(weather.weathercode, weather.is_day); // Like Sun or Cloud
+  text += ` ${weather.temperature}${units.temperature}`; // Like 25°C or 90°F
+  text += ` || 💨 ${weather.windspeed}${units.windspeed}`; // Like 10km/h
+  text += ` ${weather.winddirection}${units.winddirection}`;
+  document.getElementById("weather").innerText = text;
+}
+
+getWeather();
+
+// -- Settings
+const settingForm = document.getElementById("settingForm");
+settingForm.addEventListener("submit", function(event) {
+  // Prevent reloading
+  event.preventDefault();
+
+  // Get values
+  const selectedTemp = document.querySelector('input[name="temp"]:checked')?.value;
+  const selectedWind = document.querySelector('input[name="wind"]:checked')?.value;
+  const selectedRage = document.querySelector('input[name="rage"]:checked')?.value;
+  const lat = document.querySelector('input[name="lat"]')?.value;
+  const lon = document.querySelector('input[name="lon"]')?.value;
+
+  // Save settings in local storage
+  if (selectedTemp) localStorage.setItem('tempPref', selectedTemp);
+  if (selectedWind) localStorage.setItem('windPref', selectedWind);
+  if (selectedRage) localStorage.setItem('ragePref', selectedRage);
+  if (lat!=="") localStorage.setItem('latPref', parseFloat(lat));
+  if (lon!=="") localStorage.setItem('lonPref', parseFloat(lon));
+
+  alert("Jazzghost Settings saved.\nYou're not dumb like Jazzghost;\nYou re smart like Iberê Thenório.\n(Reload page to notice changes)")
+});
